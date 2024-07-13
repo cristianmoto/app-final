@@ -66,6 +66,53 @@ const HomeScreen = () => {
                   ):null
                 }
         </View>
+        {/*otro componente */}
+        <View className="mx-4 flex justify-around flex-1 mb-2">
+          {/*locacion */}
+          <Text className="tex-2xl  text-center font-bold text-white">
+           Buenos Aires,
+           <Text className="tex-lg font-semibold text-gray-300">
+            Argentina
+          </Text>
+          </Text>
+         {/*clima */}
+         <View className="flex-row justify-center">
+          <Image source={require('../assets/images/parcialmente.png')} className="w-52 h-52"/>
+         </View>
+         {/*grados */}
+         <View className="space-y-2">
+          <Text className="text-center font-bold text-white text-6xl ml-5">
+            23&#176;
+          </Text>
+          <Text className="text-center text-white text-xl tracking-widest">
+            Parcialmente Nublado
+          </Text>
+         </View>
+         {/*otros */}
+         <View className="flex-row justify-between mx-4">
+                <View className="flex-row space-x-2 items-center">
+                  <Image source={require('../assets/icons/viento.png')} className="h-6 w-6"/>
+                  <Text className="text-white font-semibold text-base">
+                    22km
+                  </Text>
+
+                </View>
+                <View className="flex-row space-x-2 items-center">
+                  <Image source={require('../assets/icons/humedad.png')} className="h-6 w-6"/>
+                  <Text className="text-white font-semibold text-base">
+                    23%
+                  </Text>
+
+                </View>
+                <View className="flex-row space-x-2 items-center">
+                  <Image source={require('../assets/icons/amanecer.png')} className="h-6 w-6"/>
+                  <Text className="text-white font-semibold text-base">
+                    06:05 AM
+                  </Text>
+
+                </View>
+         </View>
+        </View>
       </SafeAreaView>  
     </View>
   
