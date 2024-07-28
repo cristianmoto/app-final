@@ -1,9 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import AppNavigation from './navigation/AppNavigation';
+import bg from '../beeweather/assets/images/fondo.png'
+import { View, StatusBar,Image } from 'react-native';
+import Navegacion from './navigation/AppNavigation';
+import { NavigationContainer } from '@react-navigation/native';
 
 export default function App() {
   return (
-   <AppNavigation/>
+
+    <View className="flex-1 relative">
+      <StatusBar style="light" />
+      <Image
+        blurRadius={70}
+        source={require("../beeweather/assets/images/fondo.png")}
+        className="h-full w-full  absolute"
+      />
+    <NavigationContainer >
+      <Navegacion/>
+    </NavigationContainer>
+    </View>
+   
   );
 }

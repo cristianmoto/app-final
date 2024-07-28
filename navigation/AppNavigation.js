@@ -1,23 +1,55 @@
+import React from 'react';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NavigationContainer } from '@react-navigation/native'
+import { GlobeAltIcon, CalendarDaysIcon } from 'react-native-heroicons/solid';
+import { View, StyleSheet } from 'react-native';
+import { tailwind } from 'nativewind';
 import HomeScreen from '../screens/HomeScreen';
-import { LogBox } from 'react-native';
+import AlertScreen from '../screens/AlertScreen'
 
-const Stack = createNativeStackNavigator();
-LogBox.ignoreLogs([
-    'Non-serializable values were found in the navigation state'
-]);
+const Tab = createBottomTabNavigator();
 
-const AppNavigation = () => {
+const MyTabNavigator = () => {
   return (
-   <NavigationContainer>
-    <Stack.Navigator>
-        <Stack.Screen name='Home' options={{headerShown: false}} component={HomeScreen}/>
-    </Stack.Navigator>
-   </NavigationContainer>
-  )
-}
+    <Tab.Navigator
+      screenOptions={{
+        
+        activeTintColor: "white",
+        inactiveTintColor: "#FFF",
+       
+        tabBarStyle: {
+          backgroundColor:'transparent',
+          borderTopWidth:1,
+          position: 'absolute',
+          elevation: 0 
+          
+        },
+       
+        headerShown: false,
+      }}
+    >
+      <Tab.Screen
+        name='Home'
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <GlobeAltIcon size="25" color="white" />
+          ),
+        }}
+        component={HomeScreen}
+      />
+      <Tab.Screen
+        name="Alerta"
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <CalendarDaysIcon size="25" color="white" />
+          ),
+        }}
+        component={AlertScreen}
+        
+      />
+    </Tab.Navigator>
+  );
+};
 
-export default AppNavigation
+
+export default MyTabNavigator;

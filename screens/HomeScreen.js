@@ -53,9 +53,10 @@ const HomeScreen = () => {
         blurRadius={70}
         source={require("../assets/images/fondo.png")}
         className="h-full w-full  absolute"
-      />
+  />
+  
 
-      <SafeAreaView className="flex flex-1">
+      <SafeAreaView className="flex flex-1 mb-10 border-b-white">
         <View style={{ height: "9%" }} className="mx-4  my-8 relative z-50">
           <View
             className="flex-row justify-end items-center rounded-full"
@@ -112,7 +113,7 @@ const HomeScreen = () => {
           {/*clima */}
           <View className="flex-row justify-center">
           <Image
-      source={{ uri: `https:${current.condition.icon}` }}
+      source={{ uri: `https:${current?.condition.icon}` }}
       style={{ width: 250, height: 250 }} 
     />
 
@@ -142,15 +143,7 @@ const HomeScreen = () => {
               />
               <Text className="text-white font-semibold text-base">{current?.humidity}%</Text>
             </View>
-            <View className="flex-row space-x-2 items-center">
-              <Image
-                source={require("../assets/icons/amanecer.png")}
-                className="h-6 w-6"
-              />
-              <Text className="text-white font-semibold text-base">
-                {forecast?.forecastDay?.astro?.sunset}
-              </Text>
-            </View>
+           
           </View>
         </View>
       </SafeAreaView>
