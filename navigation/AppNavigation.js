@@ -15,7 +15,7 @@ const MyTabNavigator = () => {
       screenOptions={{
         
         activeTintColor: "white",
-        inactiveTintColor: "#FFF",
+        inactiveTintColor: "gray",
        
         tabBarStyle: {
           backgroundColor:'transparent',
@@ -29,7 +29,7 @@ const MyTabNavigator = () => {
       }}
     >
       <Tab.Screen
-        name='Home'
+        name='Clima'
         options={{
           tabBarIcon: ({ color, size }) => (
             <GlobeAltIcon size="25" color="white" />
@@ -38,7 +38,7 @@ const MyTabNavigator = () => {
         component={HomeScreen}
       />
       <Tab.Screen
-        name="Alerta"
+        name="Pronostico"
         options={{
           tabBarIcon: ({ color, size }) => (
             <CalendarDaysIcon size="25" color="white" />

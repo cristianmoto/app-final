@@ -15,6 +15,12 @@ import { useState, useCallback } from "react";
 import { theme } from "../theme/index";
 import { debounce } from "lodash";
 import { fetchLocations, fetchWeatherForecast } from "../api/clima";
+import {
+  CalendarDaysIcon,
+  ArrowRightStartOnRectangleIcon,
+} from "react-native-heroicons/solid";
+
+import { ScrollView } from "react-native-gesture-handler";
 
 const HomeScreen = () => {
   const [showSearch, toggleSearch] = useState(false);
@@ -101,50 +107,63 @@ const HomeScreen = () => {
           ) : null}
         </View>
         {/*otro componente */}
-        <View className="mx-4 flex justify-around flex-1 mb-2">
-          {/*locacion */}
-          <Text className="text-2xl  text-center font-bold text-white">
-            {location?.name},
-            <Text className="text-xl font-semibold text-gray-300">
-              {location?.country}
-            </Text>
-          </Text>
-          {/*clima */}
-          <View className="flex-row justify-center">
-            <Image
-              source={{ uri: `https:${current?.condition.icon}` }}
-              style={{ width: 250, height: 250 }}
-            />
+        <View className="mb-2 space-y-3  ">
+          <View className="flex-row items-center mx-5 space-x-2 ">
+            <CalendarDaysIcon size="45" color="white" />
+            <Text className=" text-white  text-3xl">Clima Semanal</Text>
           </View>
-          {/*grados */}
-          <View className="space-y-2">
-            <Text className="text-center font-bold text-white text-6xl ml-5">
-              {current?.temp_c}&#176;
-            </Text>
-            <Text className="text-center text-white text-xl tracking-widest">
-              {current?.condition?.text}
-            </Text>
-          </View>
-          {/*otros */}
-          <View className="flex-row justify-between mx-4">
-            <View className="flex-row space-x-2 items-center">
+          <ScrollView
+            horizontal
+            contentContainerStyle={{ paddingHorizontal: 25 }}
+            showsHorizontalScrollIndicator={false}
+          >
+            <View
+              className="flex justify-center items-center w-[250px] h-[400px] rounded-3xl  mx-12 my-10"
+              style={{ backgroundColor: theme.bgWhite(0.15) }}
+            >
               <Image
-                source={require("../assets/icons/viento.png")}
-                className="h-6 w-6"
+                source={require("../assets/images/lluvia.png")}
+                className="h-[100px] w-[100px]"
               />
-              <Text className="text-white font-semibold text-base">
-                {current?.wind_kph}km
+              <Text className="text-white  text-3xl">Monday</Text>
+              <Text className="text-white text-3xl font-semibold">
+                23&#176;
               </Text>
             </View>
-            <View className="flex-row space-x-2 items-center">
+{/* ----------*/}
+<View
+              className="flex justify-center items-center w-[250px] h-[400px] rounded-3xl  mx-12 my-10"
+              style={{ backgroundColor: theme.bgWhite(0.15) }}
+            >
               <Image
-                source={require("../assets/icons/humedad.png")}
-                className="h-6 w-6"
+                source={require("../assets/images/lluvia.png")}
+                className="h-[100px] w-[100px]"
               />
-              <Text className="text-white font-semibold text-base">
-                {current?.humidity}%
+              <Text className="text-white  text-3xl">Monday</Text>
+              <Text className="text-white text-3xl font-semibold">
+                23&#176;
               </Text>
             </View>
+{/* ----------*/}
+<View
+              className="flex justify-center items-center w-[250px] h-[400px] rounded-3xl  mx-12 my-10"
+              style={{ backgroundColor: theme.bgWhite(0.15) }}
+            >
+              <Image
+                source={require("../assets/images/lluvia.png")}
+                className="h-[100px] w-[100px]"
+              />
+              <Text className="text-white  text-3xl">Monday</Text>
+              <Text className="text-white text-3xl font-semibold">
+                23&#176;
+              </Text>
+            </View>
+{/* ----------*/}
+
+
+          </ScrollView>
+          <View className="flex-1 items-center">
+            <ArrowRightStartOnRectangleIcon size="45" color="white" />
           </View>
         </View>
       </SafeAreaView>
