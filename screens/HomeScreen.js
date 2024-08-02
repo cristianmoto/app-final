@@ -101,16 +101,16 @@ const HomeScreen = () => {
             </View>
           ) : null}
         </View>
-        {/*otro componente */}
+      
         <View className="mx-4 flex justify-around flex-1 mb-2">
-          {/*locacion */}
+         
           <Text className="text-2xl  text-center font-bold text-white">
             {location?.name},
             <Text className="text-xl font-semibold text-gray-300">
               {location?.country}
             </Text>
           </Text>
-          {/*clima */}
+         
           <View className="flex-row justify-center">
           <Image
       source={{ uri: `https:${current?.condition.icon}` }}
@@ -118,7 +118,7 @@ const HomeScreen = () => {
     />
 
           </View>
-          {/*grados */}
+         
           <View className="space-y-2">
             <Text className="text-center font-bold text-white text-6xl ml-5">
               {current?.temp_c}&#176;
@@ -127,7 +127,7 @@ const HomeScreen = () => {
               {current?.condition?.text}
             </Text>
           </View>
-          {/*otros */}
+          
           <View className="flex-row justify-between mx-4">
             <View className="flex-row space-x-2 items-center">
               <Image
@@ -151,4 +151,4 @@ const HomeScreen = () => {
   );
 };
 
-export default HomeScreen
+export default HomeScreen 

@@ -19,7 +19,6 @@ import {
   CalendarDaysIcon,
   ArrowRightStartOnRectangleIcon,
 } from "react-native-heroicons/solid";
-
 import { ScrollView } from "react-native-gesture-handler";
 
 const HomeScreen = () => {
@@ -106,62 +105,42 @@ const HomeScreen = () => {
             </View>
           ) : null}
         </View>
-        {/*otro componente */}
+        {/*------------------------------------------------------------------------------ */}
+
         <View className="mb-2 space-y-3  ">
           <View className="flex-row items-center mx-5 space-x-2 ">
             <CalendarDaysIcon size="45" color="white" />
             <Text className=" text-white  text-3xl">Clima Semanal</Text>
           </View>
+
           <ScrollView
             horizontal
-            contentContainerStyle={{ paddingHorizontal: 25 }}
+            contentContainerStyle={{ paddingHorizontal: 15 }}
             showsHorizontalScrollIndicator={false}
           >
-            <View
-              className="flex justify-center items-center w-[250px] h-[400px] rounded-3xl  mx-12 my-10"
-              style={{ backgroundColor: theme.bgWhite(0.15) }}
-            >
-              <Image
-                source={require("../assets/images/lluvia.png")}
-                className="h-[100px] w-[100px]"
-              />
-              <Text className="text-white  text-3xl">Monday</Text>
-              <Text className="text-white text-3xl font-semibold">
-                23&#176;
-              </Text>
-            </View>
-{/* ----------*/}
-<View
-              className="flex justify-center items-center w-[250px] h-[400px] rounded-3xl  mx-12 my-10"
-              style={{ backgroundColor: theme.bgWhite(0.15) }}
-            >
-              <Image
-                source={require("../assets/images/lluvia.png")}
-                className="h-[100px] w-[100px]"
-              />
-              <Text className="text-white  text-3xl">Monday</Text>
-              <Text className="text-white text-3xl font-semibold">
-                23&#176;
-              </Text>
-            </View>
-{/* ----------*/}
-<View
-              className="flex justify-center items-center w-[250px] h-[400px] rounded-3xl  mx-12 my-10"
-              style={{ backgroundColor: theme.bgWhite(0.15) }}
-            >
-              <Image
-                source={require("../assets/images/lluvia.png")}
-                className="h-[100px] w-[100px]"
-              />
-              <Text className="text-white  text-3xl">Monday</Text>
-              <Text className="text-white text-3xl font-semibold">
-                23&#176;
-              </Text>
-            </View>
-{/* ----------*/}
-
-
+            {
+              weather?.forecast?.forecastday?.map((item, index) => {
+              return (
+                <View
+                  key={index}
+                  className="flex justify-center items-center w-[200px] h-[300px] rounded-3xl  mx-6 my-10"
+                  style={{ backgroundColor: theme.bgWhite(0.15) }}
+                >
+                  <Image
+      source={{ uri: `https:${current?.condition?.icon}` }}
+      style={{ width: 200, height: 200 }} 
+    />
+                  <Text className="text-white  text-3xl">{item.date}</Text>
+                  <Text className="text-white text-3xl font-semibold">
+                    {item?.day?.avgtemp_c}&#176;
+                  </Text>
+                </View>
+              );
+            })}
           </ScrollView>
+
+
+
           <View className="flex-1 items-center">
             <ArrowRightStartOnRectangleIcon size="45" color="white" />
           </View>
