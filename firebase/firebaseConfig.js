@@ -3,21 +3,14 @@ import { getFirestore } from "firebase/firestore";
 
 
 const firebaseConfig = {
-
-    apiKey: "AIzaSyCZJ8uxOaiASMxGazt9B60S8NDi0bk57aU",
-  
-    authDomain: "beeweather-4fc4e.firebaseapp.com",
-  
-    projectId: "beeweather-4fc4e",
-  
-    storageBucket: "beeweather-4fc4e.appspot.com",
-  
-    messagingSenderId: "611681207854",
-  
-    appId: "1:611681207854:web:deff26aa70b01562cf81bf"
-  
-  };
-  
+  apiKey: "AIzaSyBJWXK__7LVmmAky2M5OX1rei2_8cOCoKQ",
+  authDomain: "final-app-d982e.firebaseapp.com",
+  databaseURL: "https://final-app-d982e-default-rtdb.firebaseio.com",
+  projectId: "final-app-d982e",
+  storageBucket: "final-app-d982e.appspot.com",
+  messagingSenderId: "54255965377",
+  appId: "1:54255965377:web:c95d3e0e33d489ed4a3040"
+};
   
 
 

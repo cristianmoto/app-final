@@ -1,33 +1,35 @@
 import React, { useState } from "react";
-import {  View,  Text,  SafeAreaView,  Image,  TextInput,  TouchableOpacity,} from "react-native";
+import {
+  View,
+  Text,
+  SafeAreaView,
+  Image,
+  TextInput,
+  TouchableOpacity,
+} from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { theme } from "../theme/index";
 import auth from "@react-native-firebase/auth";
-import { useNavigation } from '@react-navigation/native';
 
-const LoginScreen = () => {
+const SignupScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = () => {
-    const navigation = useNavigation(); // Hook para obtener el objeto de navegación
-  
+  const handleSignup = () => {
     auth()
-      .signInWithEmailAndPassword(email, password)
+      .createUserWithEmailAndPassword(email, password)
       .then(() => {
-        console.log("User signed in!");
-        navigation.navigate('HomeScreen'); // Navegar a HomeScreen
+        console.log("User signed up!");
       })
       .catch((error) => {
-        if (error.code === "auth/user-not-found") {
-          console.log("No user found with that email.");
-        } else if (error.code === "auth/wrong-password") {
-          console.log("Incorrect password.");
+        if (error.code === "auth/email-already-in-use") {
+          console.log("That email address is already in use!");
+        } else if (error.code === "auth/invalid-email") {
+          console.log("That email address is invalid!");
         } else {
           console.error(error);
         }
       });
-  
   };
 
   return (
@@ -41,7 +43,7 @@ const LoginScreen = () => {
       <SafeAreaView className="flex flex-1 justify-center items-center">
         <View style={{ width: "80%" }} className="mb-10">
           <Text className="text-3xl font-bold text-white mb-6 text-center">
-            Login
+            Signup
           </Text>
 
           <View className="mb-4">
@@ -65,11 +67,11 @@ const LoginScreen = () => {
           </View>
 
           <TouchableOpacity
-            onPress={handleLogin}
+            onPress={handleSignup}
             style={{ backgroundColor: theme.bgWhite(0.3) }}
             className="rounded-full p-3 m-1"
           >
-            <Text className="text-white text-center">Login</Text>
+            <Text className="text-white text-center">Signup</Text>
           </TouchableOpacity>
         </View>
       </SafeAreaView>
@@ -77,4 +79,4 @@ const LoginScreen = () => {
   );
 };
 
-export default LoginScreen;
+export default SignupScreen;

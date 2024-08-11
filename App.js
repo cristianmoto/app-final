@@ -3,6 +3,7 @@ import { View, StatusBar,Image } from 'react-native';
 import Navegacion from './navigation/AppNavigation';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
+import StackNavigation from './navigation/StackNavigation';
 
 export default function App() {
   return (
@@ -15,7 +16,7 @@ export default function App() {
         className="h-full w-full  absolute"
       />
     <NavigationContainer >
-      <Navegacion/>
+     <StackNavigation/>
     </NavigationContainer>
     </View>
     </GestureHandlerRootView>

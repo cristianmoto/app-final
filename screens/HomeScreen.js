@@ -1,16 +1,6 @@
-import {
-  View,
-  Text,
-  SafeAreaView,
-  Image,
-  TextInput,
-  TouchableOpacity,
-} from "react-native";
+import {  View,  Text,  SafeAreaView,  Image,  TextInput,  TouchableOpacity,} from "react-native";
 import { StatusBar } from "expo-status-bar";
-import {
-  MagnifyingGlassIcon,
-  MapPinIcon,
-} from "react-native-heroicons/outline";
+import {  MagnifyingGlassIcon,  MapPinIcon,} from "react-native-heroicons/outline";
 import { useState, useCallback } from "react";
 import { theme } from "../theme/index";
 import { debounce } from "lodash";
@@ -50,8 +40,8 @@ const HomeScreen = () => {
     <View className="flex-1 relative">
       <StatusBar style="light" />
       <Image
-        blurRadius={70}
-        source={require("../assets/images/fondo.png")}
+       
+        source={require("../assets/images/fondo.jpg")}
         className="h-full w-full  absolute"
   />
   
